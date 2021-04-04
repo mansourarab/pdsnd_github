@@ -5,8 +5,6 @@ April 04, 2021
 Mansour Arab Bike Share Python Project
 
 ### Description
-######################### Bike Share Project #########################
-
 This is the Bike Share project done by Mansour Arab for the "Programming for Data Science Nano Degree".
 
 The code is made by Python 3.9 and used Anaconda environment.
