@@ -1,7 +1,7 @@
 import pandas as pd
 import datetime as dt
-import time as ti
-import calendar as cal
+import time
+import calendar
 
 #Extraction Data Function
 def extraction_fun(city,fmonth,fday):
@@ -21,7 +21,7 @@ def extraction_fun(city,fmonth,fday):
 
     #Extract month from Start Time to create new column (Month)
     city_df['Months Num'] = city_df['Start Time'].dt.month
-    month_names = list(cal.month_name)
+    month_names = list(calendar.month_name)
     months = []
     for i in city_df['Months Num']:
         months.append(month_names[i])
@@ -30,7 +30,7 @@ def extraction_fun(city,fmonth,fday):
     
     #Extract day of week from Start Time to create new column (Week Day)
     city_df['Week Days Num'] = city_df['Start Time'].dt.dayofweek 
-    week_days_names = list(cal.day_name)
+    week_days_names = list(calendar.day_name)
     week_days = []
     for i in city_df['Week Days Num']:
         week_days.append(week_days_names[i])
@@ -165,6 +165,7 @@ def user_info(df , city):
 def raw_data(df):
     count = 0
     sample = print(df.sample(5))
+    pd.set_option('display.max_columns',200)
     return sample
 
 #///////////////////////////////////////////////////////////////////////////////////////
@@ -187,7 +188,7 @@ def main():
                 while True:
                     try:
                         fmonth = input('I would like to filter the data by (full month name): Type \'all\' if no filter is needed)   ').capitalize()
-                        last_months = list(cal.month_name[7::])
+                        last_months = list(calendar.month_name[7::])
                         if fmonth in last_months:
                             print('\n No Data Available for the requested month \n')
                             del city, fday, fmonth
@@ -205,7 +206,7 @@ def main():
                 
                 city_df = extraction_fun(city,fmonth,fday)
                 print('\n Please wait...popular times of traviling are being calculated....\n')
-                ti.sleep(5)
+                time.sleep(5)
                 print('.....\n')
                 pop_times_traviling(city_df)
                 print('.....\n')
@@ -213,21 +214,21 @@ def main():
                 
 
                 print('Please wait...popular destinations for traviling are being calculated....\n')
-                ti.sleep(5)
+                time.sleep(5)
                 print('.....\n')
                 pop_stations(city_df)
                 print('.....\n')
                 print('\\\\\\\\\\')
 
                 print('Please wait...time statistics for traviling are being calculated....\n')
-                ti.sleep(5)
+                time.sleep(5)
                 print('.....\n')
                 travil_calcs(city_df)
                 print('.....\n')
                 print('\\\\\\\\\\')
 
                 print('Please wait...user information are being calculated....\n')
-                ti.sleep(5)
+                time.sleep(5)
                 print('.....\n')
                 user_info(city_df , city)
                 print('.....\n')
@@ -243,7 +244,7 @@ def main():
                         if raw_data_choise =='Y':
                             print('Alright! Preparing raw data.....\n')
                             raw_data_sample = raw_data(city_df)
-                            ti.sleep(3)
+                            time.sleep(3)
                             print(raw_data_sample)
                             
                         elif raw_data_choise == 'N':
