@@ -19,7 +19,7 @@ def extraction_fun(city,fmonth,fday):
     #Parsing the 'Start Time' to datetime object
     city_df['Start Time'] = pd.to_datetime(city_df['Start Time'])
 
-    # extract month from Start Time to create new column (Month)
+    #Extract month from Start Time to create new column (Month)
     city_df['Months Num'] = city_df['Start Time'].dt.month
     month_names = list(cal.month_name)
     months = []
@@ -28,7 +28,7 @@ def extraction_fun(city,fmonth,fday):
     city_df.drop(['Months Num'] , axis =1 , inplace = True)
     city_df.insert(7 , 'Months' , months, allow_duplicates = True)
     
-    # extract day of week from Start Time to create new column (Week Day)
+    #Extract day of week from Start Time to create new column (Week Day)
     city_df['Week Days Num'] = city_df['Start Time'].dt.dayofweek 
     week_days_names = list(cal.day_name)
     week_days = []
@@ -61,7 +61,7 @@ def extraction_fun(city,fmonth,fday):
 
 #///////////////////////////////////////////////////////////////////////////////////////
 
-# This function is to compute the First calculations: Most popular hour,and the counts of trips
+#This function is to compute the First calculations: Most popular hour,and the counts of trips
 def pop_times_traviling(df):
     
     #The most popular month
@@ -93,7 +93,7 @@ def pop_times_traviling(df):
 
 #///////////////////////////////////////////////////////////////////////////////////////
 
-# This function is to compute the Second calculations: Most popular stations and Trips
+#This function is to compute the Second calculations: Most popular stations and Trips
 def pop_stations(df):
     
     #The most popular Start Station
@@ -111,7 +111,7 @@ def pop_stations(df):
 
 #///////////////////////////////////////////////////////////////////////////////////////
 
-# This function is to compute the Third calculations: Total Travilling Time, and Average Travilling Time
+#This function is to compute the Third calculations: Total Travilling Time, and Average Travilling Time
 def travil_calcs(df):
     
     # Total Travil Time
@@ -127,7 +127,7 @@ def travil_calcs(df):
 
 #///////////////////////////////////////////////////////////////////////////////////////
 
-# This function is to compute the Fourth calculations: The Counts of user types, thier gender (only NYC and Chicago), Common year of birth
+#This function is to compute the Fourth calculations: The Counts of user types, thier gender (only NYC and Chicago), Common year of birth
 
 def user_info(df , city):
     #User Types Counter
@@ -169,8 +169,8 @@ def raw_data(df):
 
 #///////////////////////////////////////////////////////////////////////////////////////
 
-# The main Function
-# This project is to show data regarding bikeshare program!
+#The main Function
+#This project is to show data regarding bikeshare program!
 def main():
         print('Welcome to BikeShare Data Center!')
         
