@@ -165,6 +165,7 @@ def user_info(df , city):
 def raw_data(df):
     count = 0
     sample = print(df.sample(5))
+    pd.set_option('display.max_columns',200)
     return sample
 
 #///////////////////////////////////////////////////////////////////////////////////////
